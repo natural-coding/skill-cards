@@ -1,0 +1,515 @@
+/**************************************************************************
+*   Temp stuff to 'debug' CSS
+**************************************************************************/
+
+/*svg {
+   border: 1px solid;
+}
+*/
+/*   .portfolio-card > .card-footer {
+      border: 3px solid green;
+   }
+*/
+/*   .portfolio-card {
+      border: 3px solid green;
+   }
+*/
+/*   .portfolio-card, .portfolio-card *, .portfolio-card-nopic * {
+      border: 3px solid green;
+   }
+*/
+   /*.pic-placeholder svg {
+      border: 3px solid red;
+   }
+   */
+
+/**************************************************************************
+*  Global parameters applying to the root DOM element
+*  Font size
+**************************************************************************/
+   /*=====================================================================
+   *  Font sizes (see font-sizes.txt for details)
+      ----------
+      (do not use CSS variables to support all the browsers :-))
+      Desktop (min-width: 640px)
+         body, text: Regular  21px
+         step: 2pt => 2/21px = 0.1rem
+         
+         heading3: bold, 1.6rem
+         small2: 0.9rem
+   ======================================================================*/
+      * {
+         box-sizing: border-box;
+      }
+      .container-main, .portfolio-card {
+         box-sizing: border-box;
+      }
+      :root {
+         font-size: 21px; /*16px by default*/
+         font-family: serif;
+      }
+
+      h3 {
+         /* Decrease font-size by 1 step due to using of sans-serif fonts */         
+         font-size: 1.5rem;
+      }
+
+      .cta-link {
+         font-size: 0.9rem;
+      }
+
+      .tags-list, .optional-date {
+         font-size: 0.8rem;
+      }
+
+   /*=====================================================================
+   *  Font families and font weights
+   ======================================================================*/
+      h3 {
+         font-family: sans-serif;
+      }
+
+      .cta-link {
+         font-family: sans-serif;
+      }
+
+      .portfolio-card > .main-part > .project-info > p:first-of-type::first-line {
+         font-weight: bold;
+      }
+
+      .tags-list, .optional-date {
+         font-family: sans-serif;
+      }
+
+
+
+   :root {
+      /*background-color: #ebebe0;*/
+      /*background-color: CornflowerBlue;*/
+      /*background-color: PowderBlue;*/
+      background-color: #f2f2f2;
+   }
+
+/**************************************************************************
+*   Reset (selective)
+**************************************************************************/
+   ul {
+      padding: 0;
+      margin: 0;
+   }
+   p {
+      margin: 0;
+   }
+
+/**************************************************************************
+*   *Flex layout
+**************************************************************************/
+   .container-main {
+      display: flex;
+      flex-wrap: wrap;
+   }
+
+/**************************************************************************
+*   mixin portfolio-card
+**************************************************************************/
+   /*=====================================================================
+   * Flex layout
+   ======================================================================*/
+      .portfolio-card {
+         flex-direction: column;
+      }
+      .portfolio-card > .main-part {
+         flex: 4;
+         display: flex;
+      }
+      .portfolio-card > .main-part > .pic-placeholder {
+         flex: 0.7;
+         
+         display: flex;
+         flex-direction: column;
+         justify-content: center;
+      }
+         .main-part > .pic-placeholder > svg {
+            flex: 0.5;
+         }
+         .main-part > .pic-placeholder > .pic-itself {
+            flex: 1;
+         }
+      .portfolio-card > .main-part > .project-info {
+         flex: 2;
+      }
+      .portfolio-card > .card-footer {
+         flex: 2;
+         display: flex;
+         justify-content: space-between;
+         align-items: baseline;
+      }
+      .portfolio-card > .card-footer > .optional-date {
+         display: flex;
+         align-items: center;
+      }
+
+   /*=====================================================================
+      *Width, height, margins, padding, background images
+   ======================================================================*/
+      /**************************************************************************
+      *   Header
+      **************************************************************************/
+            header > .svg-logo > svg {
+               width: 100%;
+            }
+
+
+
+      .cta-link:only-child {
+         min-width: 90px;
+      }
+
+      /* ;-) */
+      .cta-link:nth-child(4) {
+         min-width: 90px;
+      }
+
+      .portfolio-card {
+         /*width: 450px;*/
+         height: auto;
+         padding: 15px;
+/*         margin-top: 0.5rem;
+         margin-left: 0.25rem;
+*//*         margin-right: 0.5vw;
+         margin-bottom: 0.5vw;
+*/         
+      }
+
+         .portfolio-card > .main-part > .pic-placeholder {
+            padding-left: 0;
+            padding-right: 0;
+         }
+      .portfolio-card > .main-part > .pic-placeholder svg {
+         /*width: 60%;*/
+         width: 6rem;
+      }
+
+      .main-part > .pic-placeholder > .pic-itself {
+         width: 95px;
+         height: 95px;
+      }
+
+      .portfolio-card > .main-part > .project-info {
+         /*margin-left: 15px;*/
+      }
+
+         .cta-link {
+            padding: 0.3rem 0.4rem;
+            margin: 0.5rem 0;
+            margin-right: 0.6rem;
+         }
+
+         // .cta-link + .cta-link do not work! ;-)
+         .cta-link:last-of-type {
+            margin-right: 0;
+         }
+
+
+/*         .portfolio-card > .main-part > .project-info .cta-link {
+            padding: 0.3rem 0.4rem;
+            margin: 0.5rem 0;
+         }
+*/
+      
+
+      .portfolio-card > .card-footer {
+         margin-top: 15px;
+      }
+
+      .card-footer > .optional-date > p {
+         width: 5rem;
+      }
+
+      /*do not work as I exprected*/
+/*
+      .card-footer > .tags-list {
+         padding-bottom: -2.5rem; 
+      }
+*/
+      .card-footer > .tags-list > li {
+         padding: 0 0.5rem;
+         margin-bottom: 0.15rem;
+      }
+
+      .card-footer > .optional-date > p {
+         padding: 0.2rem 0;
+      }
+
+      .js-skill {
+         margin: 10px 0;
+         margin-right: 10px;
+         background-image: url('assets/02-js-hemishphere.png');
+         background-size: auto 100%;
+         background-repeat: no-repeat;
+         
+      }
+
+      /**************************************************************************
+      *   *Footer
+      **************************************************************************/
+         footer > .svg-logo {
+            margin: 2rem 0;
+         }
+            footer > .svg-logo > svg {
+               width: 100%;
+               max-width: 800px;
+               margin-left: auto;
+               margin-right: auto;
+            }
+
+
+   /*=====================================================================
+   *  Visibility, display modes, revert styles
+   ======================================================================*/
+      .card-footer > .tags-list > li {
+         /* Make them block level so they add to the
+         parents' element height. Thanks to Keith Grant! :-) */
+         display: inline-block;
+      }
+
+/*      .portfolio-card > .main-part > .pic-placeholder {
+         overflow: hidden;
+      }
+
+*/      .main-part > .project-info .cta-link {
+         display: inline-block;
+      }
+
+      footer > .svg-logo > svg {      
+         display: block;
+      }
+         
+
+
+   /*=====================================================================
+   *  Borders, colors, text-align, text-decoration, transform
+   ======================================================================*/
+      a,a:visited {
+         color: blue;
+         text-decoration: none;
+      }
+      .portfolio-card {
+         /*border-radius: 1rem;*/
+         border-radius: 8px;
+         border: 3px solid #009900;
+      }
+         .card-footer > .tags-list > li {
+            border: 1px solid;
+            border-color: #bfbfbf;
+            background-color: #e6e6e6;
+            border-radius: 0.5rem;
+         }
+
+         .card-footer > .optional-date > p {
+            background-color: #e6e6e6;
+            border: 1px solid;
+            border-color: #bfbfbf;
+            border-radius: 0.5rem;
+            text-align: center;
+         }
+
+         .main-part > .project-info .cta-link {
+            border: 2px solid;
+            border-radius: 0.3rem;
+            text-align: center;
+         }
+
+         .main-part > .project-info .cta-external-link {
+            background-color: #ffcccc;
+         }
+
+         .main-part > .project-info .cta-read-post-link {
+            background-color: #cceeff;
+         }
+
+         .main-part > .project-info > .cta-block {
+            text-align: center;
+         }
+
+
+
+
+   /*=====================================================================
+   *  Fun with fonts
+   ======================================================================*/
+      .portfolio-card p:first-of-type {
+         line-height: 1.1rem;
+      }
+
+      .portfolio-card > .main-part > .project-info > p:first-of-type::first-line {
+         color: #33bbff;
+         letter-spacing: 0.2rem;
+         line-height: 1.2rem;
+      }
+
+   /*=====================================================================
+      *Hover effects, absolute positioning
+   ======================================================================*/
+   .card-footer > .tags-list > li:hover {
+      cursor: pointer;
+   }
+
+
+
+
+
+
+/**************************************************************************
+*   mixin portfolio-card5, 9 :-)
+**************************************************************************/
+   /*=====================================================================
+   * Flex layout
+   ======================================================================*/
+/*      .portfolio-card-nopic > .card-footer {
+         justify-content: center;
+      }
+*/      
+      .portfolio-card-nopic > .main-part {
+         margin: 0 2.5%;
+      }
+   /*=====================================================================
+   *  Width, height, margins, padding, background images
+   ======================================================================*/
+      .portfolio-card-nopic {
+         width: 350px;
+         height: auto;
+         padding: 15px;
+         
+      }
+
+   /*=====================================================================
+   *  Borders, colors, text-align
+   ======================================================================*/
+      .portfolio-card-nopic > .main-part >  .project-info > h3 {
+         text-align: center;
+      }
+
+
+
+/*      * {
+         border: none;
+         border-radius: 0;
+      }
+*/
+
+/*      * {
+         border: thick solid green;
+      }
+*/
+      .container-main {
+         border: none;
+      }
+
+   .portfolio-card {
+      /*border: 3px solid green;*/
+      border: thin solid black;
+   }
+
+   .container-main >.flexmasonry-break {
+      border: none;
+   }
+
+/**************************************************************************
+*   SVG styling and animations
+**************************************************************************/
+      /**************************************************************************
+      *   Header
+      **************************************************************************/
+         /*==========================================================================
+         *   Media queries
+         ==========================================================================/
+/*            @media (min-width: 1400px) {
+               header > .svg-logo {
+                  transform: scale(1);
+               }
+            }
+            @media (max-width: 1279px) {
+               header > .svg-logo {
+                  transform: scale(1.1);
+               }
+            }
+            @media (max-width: 1079px) {
+               header > .svg-logo {
+                  transform: scale(1.2);
+               }
+            }
+            
+            @media (max-width: 959px) {
+               header > .svg-logo {
+                  transform: scale(1.5);
+               }
+            }
+
+            @media (max-width: 639px) {
+               header > .svg-logo {
+                  transform: scale(2);
+               }
+            }
+*/
+         /*========================================================================
+            Waves -> trajectories! ;-)
+         ========================================================================*/
+            header > .svg-logo > svg path.wave {
+               stroke-dasharray: 90;
+               stroke-dashoffset: 90;
+               transition-property: stroke-dashoffset;
+               transition-duration: 1s;
+               /*transition-timing-function: cubic-bezier(0.000, 0.420, 0.165, 0.970);*/
+               /*transition-timing-function: cubic-bezier(0.000, 0.420, 0.000, 1.570);*/
+               /*transition-timing-function: cubic-bezier(0.000, 1.165, 0.000, 0.975);*/
+               /*transition-timing-function: cubic-bezier(1.000, 0.195, 0.920, 0.925);*/
+               /*transition-timing-function: cubic-bezier(0.075, 0.780, 0.920, 0.925);*/
+               /*transition-timing-function: cubic-bezier(0.940, 0.340, 0.920, 0.925);*/
+               transition-timing-function: cubic-bezier(0.570, 0.565, 0.485, 0.995);
+            }
+
+            header > .svg-logo > svg path.wave.entire-line {
+               stroke-dashoffset: 0;
+            }
+
+         /*========================================================================
+            Stars
+         ========================================================================*/
+            header > .svg-logo > svg path.star {
+               visibility: hidden;
+               transition-property: visibility;
+            }
+
+            header > .svg-logo > svg path.star.show {
+               visibility: visible;
+            }
+            header > .svg-logo > svg path.star-distant-left {
+               transition-delay: 1000ms;
+            }
+            header > .svg-logo > svg path.star-distant-right {
+               transition-delay: 1200ms;
+            }
+
+      /**************************************************************************
+      *   Footer
+      **************************************************************************/
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
